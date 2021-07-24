@@ -9,7 +9,8 @@ resource "aws_ecr_lifecycle_policy" "this" {
   policy = jsonencode(
     {
       "rules" : [
-        { "rulePriority" : 1,
+        {
+          "rulePriority" : 1,
           "description" : "Hold only ${var.holding_count} images, expire a› ›ll others",
           "selection" : {
             "tagStatus" : "any",
@@ -19,7 +20,9 @@ resource "aws_ecr_lifecycle_policy" "this" {
           "action" : {
             "type" : "expire"
           }
-      }]
-  })
+        }
+      ]
+    }
+  )
   repository = aws_ecr_repository.this.name
 }

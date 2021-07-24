@@ -20,7 +20,14 @@ resource "aws_ecr_lifecycle_policy" "nginx" {
           "action" : {
             "type" : "expire"
           }
-      }]
-  })
+        }
+      ]
+    }
+  )
   repository = aws_ecr_repository.nginx.name
+}
+
+module "nginx" {
+  source = "../../../../modules/ecr"
+  name   = "laravel-fargate-infra-prod-foobar-nginx"
 }
