@@ -5,5 +5,5 @@ module "nginx" {
 
 module "php" {
   source = "../../../../modules/ecr"
-  name   = "example-prod-foobar-php"
+  name   = "laravel-fargate-infra-prod-foobar-php"
 }
